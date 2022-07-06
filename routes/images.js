@@ -30,19 +30,23 @@ router.get("/", async (req, res) => {
   }
 });
 
-//get specific image
+/* //get specific image
 router.get("/:imageID", async (req, res) => {
   let image = await Image.findById(req.params.imageID);
   res.json(image);
-});
+}); */
 
 //delete a image
 router.delete("/:imageID", async (req, res) => {
-  const removeimage = await Image.remove({ _id: req.params.imageID });
-  res.json(removeimage);
+  try {
+    const removeimage = await Image.deleteOne({ _id: req.params.imageID });
+    res.json(removeimage);
+  } catch (err) {
+    console.log(err);
+  }
 });
 
-//update a image
+/* //update a image
 router.patch("/:imageId", async (req, res) => {
   try {
     let updatedimage = await Image.updateOne(
@@ -53,10 +57,6 @@ router.patch("/:imageId", async (req, res) => {
   } catch (error) {
     res.json(error);
   }
-});
-
-/* router.get("/next-page", (req, res) => {
-  res.send("gonna be /images/next-page ");
 }); */
 
 module.exports = router;

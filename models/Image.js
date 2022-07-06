@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const ImagesSchema = mongoose.Schema({}, { strict: false });
+const ImagesSchema = mongoose.Schema({ id: String }, { strict: false });
 
 let Images = mongoose.model("Images", ImagesSchema);
 
