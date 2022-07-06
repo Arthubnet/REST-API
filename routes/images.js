@@ -39,7 +39,7 @@ router.get("/:imageID", async (req, res) => {
 //delete a image
 router.delete("/:imageID", async (req, res) => {
   try {
-    const removeimage = await Image.deleteOne({ _id: req.params.imageID });
+    const removeimage = await Image.deleteOne({ id: req.params.imageID });
     res.json(removeimage);
   } catch (err) {
     console.log(err);
