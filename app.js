@@ -29,14 +29,14 @@ const imagesRoute = require("./routes/images");
 app.use("/images", imagesRoute);
 
 //routes
-router.get("/", async (req, res) => {
+app.get("/", (req, res) => {
   res.send("THis is home");
-  try {
-    let images = await Image.find();
-    res.json(images);
-  } catch (err) {
-    console.log(err);
-  }
+    try {
+      let images = await Image.find();
+      res.json(images);
+    } catch (err) {
+      console.log(err);
+    }
 });
 
 //Connect to DB
