@@ -30,10 +30,10 @@ app.use("/images", imagesRoute);
 //routes
 /* app.get("/", (req, res) => {
   res.send("This is home");
-}); */
-
+});
+ */
 //Connect to DB
-mongoose.connect(process.env.DB_CONNECTION, () => {
+mongoose.connect(`${process.env.DB_CONNECTION}`, () => {
   console.log("connected to DB");
 });
 
