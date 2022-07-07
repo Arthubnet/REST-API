@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 const fetch = require("node-fetch");
 const cors = require("cors");
 
+const port = process.env.PORT || 3000;
+
 //parsing anyime we got request to the server
 app.use(bodyParser.json());
 
@@ -38,4 +40,4 @@ mongoose.connect(`${process.env.DB_CONNECTION}`, () => {
 });
 
 //listening the server
-app.listen(process.env.PORT || 3000);
+app.listen(port);
