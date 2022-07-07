@@ -14,12 +14,10 @@ app.use(bodyParser.json());
 //cors
 app.use(cors());
 
-let UNSPLASH_KEY = process.env.UNSPLASH_KEY;
-
 //middlewear
 app.use("/new-image/:query", async (req, res) => {
   let response = await fetch(
-    `https://api.unsplash.com/photos/random?query=${req.params.query}&client_id=${UNSPLASH_KEY}`
+    `https://api.unsplash.com/photos/random?query=${req.params.query}&client_id=${process.env.REACT_APP_UNSPLASH_KEY}`
   ).then((data) => data.json());
 
   res.json(response);
@@ -30,12 +28,12 @@ const imagesRoute = require("./routes/images");
 app.use("/images", imagesRoute);
 
 //routes
-/* app.get("/", (req, res) => {
+app.get("/", (req, res) => {
   res.send("This is home");
 });
- */
+
 //Connect to DB
-mongoose.connect(`${process.env.DB_CONNECTION}`, () => {
+mongoose.connect(process.env.DB_CONNECTION, () => {
   console.log("connected to DB");
 });
 
