@@ -4,16 +4,21 @@ const mongoose = require("mongoose");
 require("dotenv/config");
 const bodyParser = require("body-parser");
 const fetch = require("node-fetch");
-const cors = require("cors");
 
 const port = process.env.PORT || 3000;
 
 //parsing anyime we got request to the server
 app.use(bodyParser.json());
 
-//cors
-app.use(cors());
-
+// Add Access Control Allow Origin headers
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 //middlewear
 app.use("/new-image/:query", async (req, res) => {
   let response = await fetch(
