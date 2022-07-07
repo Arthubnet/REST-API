@@ -38,4 +38,4 @@ mongoose.connect(process.env.DB_CONNECTION, () => {
 });
 
 //listening the server
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
