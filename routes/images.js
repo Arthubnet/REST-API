@@ -22,6 +22,7 @@ router.post("/", async (req, res) => {
 
 //list of images
 router.get("/", async (req, res) => {
+  res.send("THis is images");
   try {
     let images = await Image.find();
     res.json(images);
