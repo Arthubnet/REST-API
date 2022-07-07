@@ -40,9 +40,12 @@ app.get("/", (req, res) => {
 });
 
 //Connect to DB
-mongoose.connect(process.env.DB_CONNECTION, () => {
-  console.log("connected to DB");
-});
+mongoose.connect(
+  "mongodb+srv://zotig:zotig123@cluster0.xhyse.mongodb.net/images?retryWrites=true&w=majority",
+  () => {
+    console.log("connected to DB");
+  }
+);
 
 //listening the server
 app.listen(port);
