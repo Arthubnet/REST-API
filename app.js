@@ -30,12 +30,7 @@ app.use("/images", imagesRoute);
 
 //routes
 app.get("/", (req, res) => {
-   try {
-      let images = await Image.find();
-      res.json(images);
-    } catch (err) {
-      console.log(err);
-    } 
+  res.send("Home page");
 });
 
 //Connect to DB
