@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const ImagesSchema = mongoose.Schema(
   {
-    /* id: String  */
+    id: String,
   },
   { strict: false }
 );
