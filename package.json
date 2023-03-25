@@ -4,7 +4,7 @@
   "description": "image-gallery-api",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "author": "Artem Trehub (https://www.linkedin.com/in/artem-trehub/)",
   "license": "ISC",

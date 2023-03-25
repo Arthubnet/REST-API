@@ -5,7 +5,6 @@ require("dotenv/config");
 const bodyParser = require("body-parser");
 const fetch = require("node-fetch");
 const cors = require("cors");
-/* const Image = require("./models/Image"); */
 
 const port = process.env.PORT || 3000;
 
@@ -30,13 +29,25 @@ app.use("/images", imagesRoute);
 
 //routes
 app.get("/", (req, res) => {
-  res.send("Home page");
+  res.send("Picture app API server");
 });
 
 //Connect to DB
 mongoose.connect(process.env.DB_CONNECTION, () => {
-  console.log("connected to DB");
-});
+  console.log("Connected to DB");
+}, e => console.error(e));
+
 
 //listening the server
-app.listen(port);
+const start = async () => {
+  try {
+    app.listen(port, () => {
+      console.log(`The server started at port ${port}`);
+    });
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+start()
